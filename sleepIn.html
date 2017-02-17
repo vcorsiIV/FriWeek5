@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="day"></p>
+    Are you on vacation(yes or no)<input type="text" id="vac" value="" />
+    <button onclick="test()">test</button>
+    <p id="text"></p>
+    <script>
+        //var data
+        var date = new Date();
+        var weekday = date.getDay();
+        var vacation;
+        var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        //write the day so the user can know what day of the week it is.
+        document.getElementById('day').innerHTML = "Today is: " + weekdays[weekday];
+        //test to see if you can sleep in or not:
+        function test() {
+            //get the response that the user give and covert it to lowercase.
+            vacation = document.getElementById("vac").value.toLocaleLowerCase();
+            //var testa = document.getElementById("text").innerHTML;
+
+            function sleepInCheck(a, b) {
+                var weekd, vac;
+                //Check to see if the it is a weekday: a= 1 to 5
+                if (a != 0 || 6) {
+                    
+                    weekd = true;
+                    document.getElementById("text").innerHTML ="Weekday: " + weekd + "<br>";
+                    // if it is a weekday but your on vacation return true
+                    if (b == "yes") {
+                        vac = true;
+                        document.getElementById("text").innerHTML += "On Vacation: " + vac + "<br>";
+                        //return true;
+                    }
+                    // if it is a weekday and your not on vacation return false
+                    else if (b == "no") {
+                        vac = false;
+                        document.getElementById("text").innerHTML += "On Vacation: " + vac + " <br>";
+                        //return false;
+
+                    }
+                    // if the user input something other then a yes or no just return to prompt them to reenter yes or no.
+                    else
+                        return;
+                }
+                // if it is a weekend return true;
+                else {
+                    weekd = false;
+                    document.getElementById("text").innerHTML = "Weekday: " + weekd + " <br>"
+                    //return true;
+                }
+
+                //if it is not a weekday  you can sleep in so return true.
+                if (weekd == false) {
+                    return true;
+                }
+                else {
+                    //if it is a weekday and your not on vacation return false.
+                    if (vac == false) {
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+                    
+            }
+
+            // Check to see if you can sleep-in or not.
+            var sleepIn = sleepInCheck(weekday, vacation);
+
+            if (sleepIn == true)
+                document.getElementById('demo').innerHTML = "Guess what, you can sleep in today.";
+
+            else if (sleepIn == false)
+                document.getElementById('demo').innerHTML = "Sorry you have to get up today.";
+
+            else
+                document.getElementById('demo').innerHTML = "Please write Yes or No";
+
+        }
+
+        
+    </script>
+</body>
+</html>

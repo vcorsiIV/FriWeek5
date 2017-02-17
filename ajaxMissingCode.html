@@ -1,0 +1,37 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        //Function named getTextInfo
+        //had to change function name fillInTheCode to getTextInfo
+        function getTextInfo() {
+            //Declare variable & set it to an XHR object
+            //***** Missing Code Goes Here! *****
+            xhttp = new XMLHttpRequest();
+            //AJAX property
+            xhttp.onreadystatechange = function () {
+                //*****Filled in the missing code in the if statement *****
+                if (this.readyState = 4 && this.status == 200) {
+                    //DOM Method changing innerHTML id="demo"
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            //AJAX Methods
+            //Set the url path as 'Path/fileName.txt' because the file that we are trying to run
+            //does not exist yet, we used 'scripts/AJAX.txt' during class.
+            xhttp.open("GET", 'Path/fileName.txt', true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <!--***** Fill in the missing code here! *****-->
+    <!--Have the user click a button to activeate the getTextInfo Function-->
+    <div id="demo">
+        <button onclick="getTextInfo()">Click to Fill In the Code</button>
+    </div>
+</body>
+</html>

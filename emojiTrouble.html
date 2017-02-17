@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        function test() {
+            //gets the user input
+            var e1Smile = document.getElementById('p1').value;
+            var e2Smile = document.getElementById('p2').value;
+
+            //the function that will return true if the emoji match, else return false
+            function smile(a,b){
+                if (a == b) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            
+            //emojiTriouble = "the function we are to use's name" (e1Smile, e2Smile)
+            var emojiTrouble = smile (e1Smile, e2Smile);
+            
+            if (emojiTrouble == true) {
+                document.getElementById("demo").innerHTML = "we are in trouble"
+            }
+            else {
+                document.getElementById("demo").innerHTML = "we are not in trouble"
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <p>there are two people tell us if they are smiling in emoji (accepts :) or this :( only)
+    </p>
+    person1<input type="text" id="p1" value=":)" />
+    person2<input type="text" id="p2" value=":(" />
+    <br />
+    <br />
+    <button onclick="test()">Answer</button>
+    <p id="demo"></p>
+</body>
+</html>
